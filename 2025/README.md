@@ -1,0 +1,2 @@
+In this folder you can find files of my sessions in 2025.
+- [Workplace Ninja User Group Belgium - Meetup #6](https://www.meetup.com/wpninjasbe/events/311460223/?eventOrigin=find_page%24all) (November 27, 2025)
