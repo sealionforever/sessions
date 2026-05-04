@@ -1,0 +1,2 @@
+In this folder you can find files of my sessions in 2026.
+- [M365 Dublin User Group - Meetup](https://www.linkedin.com/company/m365-dublin-user-group/) (April 30, 2026)
