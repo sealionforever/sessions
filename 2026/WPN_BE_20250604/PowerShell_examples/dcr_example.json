@@ -1,0 +1,72 @@
+{
+	"id": "/subscriptions/66b0f323-bb97-4cb4-b41f-9004fbf90b85/resourceGroups/rg-weu-demo/providers/Microsoft.Insights/dataCollectionRules/dcr-weu-demo",
+	"name": "dcr-weu-demo",
+	"type": "microsoft.insights/datacollectionrules",
+	"location": "westeurope",
+	"properties": {
+		"immutableId": "dcr-5e417271331149bf9968776360ddbb8e",
+		"dataCollectionEndpointId": "/subscriptions/66b0f323-bb97-4cb4-b41f-9004fbf90b85/resourceGroups/rg-weu-demo/providers/Microsoft.Insights/dataCollectionEndpoints/dce-weu-demo",
+		"streamDeclarations": {
+			"Custom-Applications_CL": {
+				"columns": [
+					{
+						"name": "id",
+						"type": "string"
+					},
+					{
+						"name": "name",
+						"type": "string"
+					}
+				]
+			},
+			"Custom-Devices_CL": {
+				"columns": [
+					{
+						"name": "deviceId",
+						"type": "string"
+					},
+					{
+						"name": "deviceName",
+						"type": "string"
+					},
+					{
+						"name": "lastSyncDateTime",
+						"type": "datetime"
+					}
+				]
+			}
+		},
+		"dataSources": {},
+		"destinations": {
+			"logAnalytics": [
+				{
+					"workspaceResourceId": "/subscriptions/66b0f323-bb97-4cb4-b41f-9004fbf90b85/resourcegroups/rg-weu-demo/providers/microsoft.operationalinsights/workspaces/law-dev-testenv",
+					"workspaceId": "30195606-70b0-46e0-8902-b228f2bfb493",
+					"name": "MyLaw"
+				}
+			]
+		},
+		"dataFlows": [
+			{
+				"streams": [
+					"Custom-Applications_CL"
+				],
+				"destinations": [
+					"MyLaw"
+				],
+				"transformKql": "source | extend TimeGenerated = now()",
+				"outputStream": "Custom-Applications_CL"
+			},
+			{
+				"streams": [
+					"Custom-Devices_CL"
+				],
+				"destinations": [
+					"MyLaw"
+				],
+				"transformKql": "source | extend TimeGenerated = now()",
+				"outputStream": "Custom-Devices_CL"
+			}
+		]
+	}
+}
